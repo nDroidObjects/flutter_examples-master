@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class CardsDemo extends StatefulWidget {
   @override
   _CardsDemoState createState() => new _CardsDemoState();
@@ -21,7 +20,7 @@ class _CardsDemoState extends State<CardsDemo> {
               child: new Text(
                 'Sub Title',
                 style:
-                new TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+                    new TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
               ),
             ),
           ),
@@ -38,7 +37,6 @@ class _CardsDemoState extends State<CardsDemo> {
 
   Widget _buildCard(CardModel card) {
     List<Widget> columnData = <Widget>[];
-
     if (card.isHeaderAvailable) {
       columnData.add(
         new Padding(
@@ -51,13 +49,25 @@ class _CardsDemoState extends State<CardsDemo> {
       );
     }
 
+    if (card.isImageAvailable) {
+      columnData.add(
+        new Padding(
+          padding: const EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
+          child: new Icon(Icons.person),
+        ),
+      );
+    }
+
     for (int i = 0; i < card.allText.length; i++)
       columnData.add(
-        new Text(card.allText[i], style: new TextStyle(fontSize: 22.0),),
+        new Text(
+          card.allText[i],
+          style: new TextStyle(fontSize: 22.0),
+        ),
       );
 
-    return new Card(
-      child: new Padding(
+    return  Card(
+      child:  Padding(
         padding: const EdgeInsets.symmetric(vertical: 15.0),
         child: Column(children: columnData),
       ),
@@ -78,16 +88,34 @@ class CardModel {
   final String headerText;
   final List<String> allText;
   final bool isHeaderAvailable;
+  final bool isImageAvailable;
 
   CardModel(
-      {this.headerText = "", this.allText, this.isHeaderAvailable = false});
+      {this.headerText = "",
+      this.allText ,
+      this.isHeaderAvailable = false,
+      this.isImageAvailable = false});
 }
 
 List<CardModel> sampleCards = [
   new CardModel(allText: ["Card 1 Text"]),
   new CardModel(
       isHeaderAvailable: true,
-      headerText: "Card 2 Header",
+      headerText: "Card 1 Header",
       allText: ["Card 2 Text Line 1", "Card 2 Text Line 2"]),
   new CardModel(allText: ["Card 3 Text"]),
+  new CardModel(allText: ["Card 4 Text"],isImageAvailable: true),
+  new CardModel(
+      isHeaderAvailable: true,
+      headerText: "Card 2 Header",
+      allText: ["Card 3 Text Line 1", "Card 3 Text Line 2"]),
+
+  new CardModel(allText: ["Card 5 Text"],isImageAvailable: true),
+
+  new CardModel(allText: ["Card 6 Text"],isImageAvailable: true),
+
+  new CardModel(allText: ["Card 7 Text"],isImageAvailable: true),
+
+  new CardModel(allText: ["Card 8 Text"],isImageAvailable: true),
+
 ];

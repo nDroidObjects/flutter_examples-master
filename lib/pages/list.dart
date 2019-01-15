@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_examples/pages/async_widget.dart';
 import 'package:flutter_examples/pages/card_demo.dart';
 import 'package:flutter_examples/pages/design.dart';
 import 'package:flutter_examples/pages/drawer.dart';
+import 'package:flutter_examples/pages/drop_down_list.dart';
+import 'package:flutter_examples/pages/flutter_callback.dart';
 import 'package:flutter_examples/pages/image_pick.dart';
 import 'package:flutter_examples/pages/list_load_infinite.dart';
+import 'package:flutter_examples/pages/load_loacal_json.dart';
 import 'package:flutter_examples/pages/load_more_listview.dart';
 import 'package:flutter_examples/pages/location/location.dart';
+import 'package:flutter_examples/pages/nested_toolbar.dart';
 import 'package:flutter_examples/pages/refresh_indicator.dart';
 import 'package:flutter_examples/pages/routing.dart';
+import 'package:flutter_examples/pages/search_list.dart';
 import 'package:flutter_examples/pages/snackbar-dialog.dart';
 import 'package:flutter_examples/pages/test-state.dart';
 import 'package:flutter_examples/pages/walk_through.dart';
@@ -83,6 +89,14 @@ class ListScreen extends StatelessWidget {
       Page("Drawer App", MyApp()),
       Page("CardsDemo App", CardsDemo()),
       Page("Walkthrough App", Welcome()),
+      Page("SearchList", SearchListPage()),
+      Page("Async Widget", AsyncWidget()),
+      Page("Drop Down List", DropDownList()),
+      Page("Nested ToolBar", NestedToolBar()),
+      Page("Callback Demo", ParentWidget()),
+      Page("Load Local Json", LoadLocalJson()),
+
+
 
     ];
   }
