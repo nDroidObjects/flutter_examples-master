@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_examples/flutter_multipage_form/main.dart';
+import 'package:flutter_examples/fullscreen_dialog/dialog.dart';
+import 'package:flutter_examples/fullscreen_dialog/fullscreen.dart';
+import 'package:flutter_examples/fullscreen_dialog/dialog_screen.dart';
 import 'package:flutter_examples/pages/async_widget.dart';
 import 'package:flutter_examples/pages/card_demo.dart';
 import 'package:flutter_examples/pages/design.dart';
 import 'package:flutter_examples/pages/drawer.dart';
 import 'package:flutter_examples/pages/drop_down_list.dart';
 import 'package:flutter_examples/pages/flutter_callback.dart';
+import 'package:flutter_examples/pages/flutter_toast.dart';
 import 'package:flutter_examples/pages/image_pick.dart';
+import 'package:flutter_examples/pages/inherited_widgets.dart';
 import 'package:flutter_examples/pages/list_load_infinite.dart';
 import 'package:flutter_examples/pages/load_loacal_json.dart';
 import 'package:flutter_examples/pages/load_more_listview.dart';
@@ -95,7 +101,20 @@ class ListScreen extends StatelessWidget {
       Page("Nested ToolBar", NestedToolBar()),
       Page("Callback Demo", ParentWidget()),
       Page("Load Local Json", LoadLocalJson()),
+      Page("Multi Form", MultiFormApp()),
+      Page("Dialogs", DialogDemo()),
+      Page("Show Toast", MyAppToast()),
 
+      Page("NamePage", MaterialApp(
+          title: 'Inherited Widgets Demo',
+          theme: new ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: new Scaffold(
+              appBar: new AppBar(
+                title: new Text('Inherited Widget Example'),
+              ),
+              body: new NamePage()))),
 
 
     ];
