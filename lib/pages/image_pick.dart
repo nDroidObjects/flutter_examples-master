@@ -1,7 +1,13 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
+
+
+
+//https://medium.com/@nitishk72/flutter-uploading-image-to-server-aec76876b9e1
 class CameraApp extends StatefulWidget {
   @override
   _CameraAppState createState() => _CameraAppState();
@@ -9,6 +15,9 @@ class CameraApp extends StatefulWidget {
 
 class _CameraAppState extends State<CameraApp> {
   File image;
+// My IPv4 : 192.168.43.171
+  final String phpEndPoint = 'http://192.168.43.171/phpAPI/image.php';
+  final String nodeEndPoint = 'http://192.168.43.171:3000/image';
 
 //  To use Gallery or File Manager to pick Image
 //  Comment Line No. 19 and uncomment Line number 20
@@ -42,5 +51,20 @@ class _CameraAppState extends State<CameraApp> {
         ),
       ),
     );
+  }
+
+  void _upload() {
+    if (image == null) return;
+    String base64Image = base64Encode(image.readAsBytesSync());
+    String fileName = image.path.split("/").last;
+
+    http.post(phpEndPoint, body: {
+      "image": base64Image,
+      "name": fileName,
+    }).then((res) {
+      print(res.statusCode);
+    }).catchError((err) {
+      print(err);
+    });
   }
 }

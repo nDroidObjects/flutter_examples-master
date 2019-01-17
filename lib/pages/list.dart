@@ -3,8 +3,11 @@ import 'package:flutter_examples/flutter_multipage_form/main.dart';
 import 'package:flutter_examples/fullscreen_dialog/dialog.dart';
 import 'package:flutter_examples/fullscreen_dialog/fullscreen.dart';
 import 'package:flutter_examples/fullscreen_dialog/dialog_screen.dart';
+import 'package:flutter_examples/pages/InternetConnectivity.dart';
 import 'package:flutter_examples/pages/async_widget.dart';
+
 import 'package:flutter_examples/pages/card_demo.dart';
+import 'package:flutter_examples/pages/custom_clock.dart';
 import 'package:flutter_examples/pages/design.dart';
 import 'package:flutter_examples/pages/drawer.dart';
 import 'package:flutter_examples/pages/drop_down_list.dart';
@@ -17,13 +20,19 @@ import 'package:flutter_examples/pages/load_loacal_json.dart';
 import 'package:flutter_examples/pages/load_more_listview.dart';
 import 'package:flutter_examples/pages/location/location.dart';
 import 'package:flutter_examples/pages/nested_toolbar.dart';
+import 'package:flutter_examples/pages/page_view/pageview.dart';
+import 'package:flutter_examples/pages/read_write/read_write_files.dart';
 import 'package:flutter_examples/pages/refresh_indicator.dart';
 import 'package:flutter_examples/pages/routing.dart';
 import 'package:flutter_examples/pages/search_list.dart';
+import 'package:flutter_examples/pages/segment_control.dart';
 import 'package:flutter_examples/pages/snackbar-dialog.dart';
 import 'package:flutter_examples/pages/test-state.dart';
+import 'package:flutter_examples/pages/tool_tip.dart';
+import 'package:flutter_examples/pages/upload_file.dart';
 import 'package:flutter_examples/pages/walk_through.dart';
 import 'package:flutter_examples/pages/webview-example.dart';
+import 'package:flutter_examples/segment/segmentedcontrol.dart';
 
 import '../model/page.dart';
 import '../util/data.dart';
@@ -104,6 +113,10 @@ class ListScreen extends StatelessWidget {
       Page("Multi Form", MultiFormApp()),
       Page("Dialogs", DialogDemo()),
       Page("Show Toast", MyAppToast()),
+      Page("Read Write in File", MyRWApp(storage: TextStorage())),
+      Page("ToolTip",  new MaterialApp(
+        home:  MyToolTipApp(),
+      )),
 
       Page("NamePage", MaterialApp(
           title: 'Inherited Widgets Demo',
@@ -116,6 +129,21 @@ class ListScreen extends StatelessWidget {
               ),
               body: new NamePage()))),
 
+
+      Page("Show PageView", LimeApp()),
+      Page("Upload File", UploadFile()),
+      Page("Segmented Control", CupertinoSegmentedControlDemo()),
+      Page("Internet Connectivity", InternetConnectivity()),
+
+      Page("Custom Clock", new MaterialApp(
+        theme: new ThemeData(
+          canvasColor: Colors.deepPurple,
+          iconTheme: new IconThemeData(color: Colors.white),
+          accentColor: Colors.pinkAccent,
+          brightness: Brightness.dark,
+        ),
+        home: new MyCustomClock(),
+      )),
 
     ];
   }
